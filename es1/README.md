@@ -1,6 +1,6 @@
-# Café Wall illusion
+# Illusione della spirale quadrata
 
-Sketch geometrico dell'illusione Café Wall realizzato in p5.js.
+Illusione ottica geometrica in bianco e nero realizzata con p5.js. Quadrati concentrici alternati e ruotati progressivamente creano l'impressione di una spirale.
 
 ## Avvio
 
@@ -8,10 +8,8 @@ Apri `index.html` in un browser con connessione Internet per caricare p5.js dal 
 
 ## Regola geometrica
 
-- Mattoni rettangolari chiari e scuri alternati.
-- Giunti bianchi continui in orizzontale e in verticale, senza grigio.
-- Righe adiacenti sfalsate di mezzo passo orizzontale.
-- I mattoni scuri scorrono lentamente, alternando la direzione e uscendo completamente dal canvas prima di rientrare.
-- Giunti, mattoni chiari e dimensioni restano fissi.
+- I quadrati concentrici alternano il nero puro e il bianco puro.
+- Ogni quadrato è leggermente più piccolo e più ruotato del precedente.
+- Lo sfondo bianco mantiene il motivo ad alto contrasto, senza grigi o testo.
 
-Le dimensioni e la velocità del movimento si trovano all'inizio di `sketch.js`.
+Il numero, la spaziatura e la rotazione dei quadrati si trovano all'inizio di `sketch.js`.
