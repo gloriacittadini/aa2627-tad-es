@@ -5,8 +5,7 @@ const brickWidth = 76;
 const brickHeight = 44;
 const mortarWidth = 6;
 const rowCount = 9;
-const motionAmplitude = 20;
-const motionSpeed = 1.1;
+const motionSpeed = 1.8;
 
 const mortarColor = '#969696';
 const brickColors = ['#171717', '#f7f7f7'];
@@ -43,7 +42,9 @@ function draw() {
       if (colorIndex === 0) {
         const darkBrickIndex = floor((column + row) / 2);
         const direction = ((darkBrickIndex % 2) + 2) % 2 === 0 ? -1 : 1;
-        const movement = direction * sin((millis() / 1000) * motionSpeed) * motionAmplitude;
+        const distanceToExit = direction < 0 ? x + brickWidth + 1 : width - x + 1;
+        const progress = (1 - cos((millis() / 1000) * motionSpeed)) / 2;
+        const movement = direction * distanceToExit * progress;
         rect(x + movement, y, brickWidth, brickHeight);
       } else {
         rect(x, y, brickWidth, brickHeight);
