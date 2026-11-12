@@ -21,8 +21,10 @@ function draw() {
 
   for (let index = 0; index < lineCount; index++) {
     const size = canvasSize * 0.68 - lineSpacing * index;
-    const phase = elapsedTime * movementSpeed - index * 0.8;
-    const movementAngle = index * rotationStep + sin(phase) * movementAmount;
+    const phaseOffset = index * 0.8;
+    const phase = elapsedTime * movementSpeed - phaseOffset;
+    const rotationOffset = (sin(phase) - sin(-phaseOffset)) * movementAmount;
+    const movementAngle = index * rotationStep + rotationOffset;
 
     push();
     translate(width / 2, height / 2);
