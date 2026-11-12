@@ -1,6 +1,6 @@
 # Illusione della spirale quadrata
 
-Illusione ottica geometrica in bianco e nero realizzata con p5.js. Quadrati concentrici alternati e ruotati progressivamente creano l'impressione di una spirale.
+Illusione ottica geometrica in bianco e nero realizzata con p5.js. Le linee quadrate concentriche si muovono singolarmente per creare un effetto di movimento.
 
 ## Avvio
 
@@ -8,9 +8,9 @@ Apri `index.html` in un browser con connessione Internet per caricare p5.js dal 
 
 ## Regola geometrica
 
-- I quadrati concentrici alternano il nero puro e il bianco puro.
-- Ogni quadrato è leggermente più piccolo e più ruotato del precedente.
-- L'intero motivo ruota continuamente attorno al centro a velocità moderata, mantenendo la forma dei quadrati.
+- Le linee quadrate concentriche sono nere, separate da spazi bianchi.
+- Ogni linea si muove individualmente con una fase sfalsata rispetto alle altre, creando un effetto ottico a velocità moderata.
+- La forma e la dimensione delle linee restano invariate durante il movimento.
 - Lo sfondo bianco mantiene il motivo ad alto contrasto, senza grigi o testo.
 
-Il numero, la spaziatura e la rotazione dei quadrati si trovano all'inizio di `sketch.js`.
+Il numero, la spaziatura e la velocità del movimento si trovano all'inizio di `sketch.js`.
