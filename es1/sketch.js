@@ -1,32 +1,33 @@
 const canvasSize = 640;
-const squareCount = 22;
+const lineCount = 11;
 const squareSpacing = 18;
-const rotationStep = 0.035;
-const movementSpeed = 0.4;
+const lineSpacing = squareSpacing * 2;
+const rotationStep = 0.07;
+const movementSpeed = 0.8;
+const movementAmount = 0.035;
 
 function setup() {
   const canvas = createCanvas(canvasSize, canvasSize);
   canvas.parent('sketch-holder');
   rectMode(CENTER);
-  noStroke();
+  noFill();
+  stroke('#000000');
+  strokeWeight(10);
 }
 
 function draw() {
   background('#ffffff');
-  const movementAngle = (millis() / 1000) * movementSpeed;
+  const elapsedTime = millis() / 1000;
 
-  push();
-  translate(width / 2, height / 2);
-  rotate(movementAngle);
-  for (let index = 0; index < squareCount; index++) {
-    const size = canvasSize * 0.68 - squareSpacing * index;
-    const angle = index * rotationStep;
+  for (let index = 0; index < lineCount; index++) {
+    const size = canvasSize * 0.68 - lineSpacing * index;
+    const phase = elapsedTime * movementSpeed - index * 0.8;
+    const movementAngle = index * rotationStep + sin(phase) * movementAmount;
 
     push();
-    rotate(angle);
-    fill(index % 2 === 0 ? '#000000' : '#ffffff');
+    translate(width / 2, height / 2);
+    rotate(movementAngle);
     rect(0, 0, size, size, 12);
     pop();
   }
-  pop();
 }
