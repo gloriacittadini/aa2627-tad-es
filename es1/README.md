@@ -11,6 +11,7 @@ Apri `index.html` in un browser con connessione Internet per caricare p5.js dal 
 - Mattoni rettangolari chiari e scuri alternati.
 - Giunti grigi continui in orizzontale e in verticale.
 - Righe adiacenti sfalsate di mezzo passo orizzontale.
-- Dimensioni dei mattoni e spessore dei giunti costanti.
+- I mattoni scuri scorrono in oscillazione, alternando la direzione orizzontale.
+- Giunti, mattoni chiari e dimensioni restano fissi.
 
-I parametri geometrici si trovano all'inizio di `sketch.js`.
+Le dimensioni e la velocità del movimento si trovano all'inizio di `sketch.js`.
