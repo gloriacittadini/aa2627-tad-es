@@ -1,6 +1,6 @@
-# Illusione della spirale quadrata
+# Illusione Op Art a onde
 
-Illusione ottica geometrica in bianco e nero realizzata con p5.js. Le linee quadrate concentriche si muovono singolarmente per creare un effetto di movimento.
+Motivo ottico originale in bianco e nero, ispirato ai principi dell'Op Art: barre nere ripetute scorrono avanti e indietro in file sfalsate, creando un'onda visiva.
 
 ## Avvio
 
@@ -8,9 +8,8 @@ Apri `index.html` in un browser con connessione Internet per caricare p5.js dal 
 
 ## Regola geometrica
 
-- Le linee quadrate concentriche sono nere, separate da spazi bianchi.
-- Ogni linea ruota individualmente attorno al proprio centro, con una fase sfalsata rispetto alle altre, creando un effetto ottico a velocità moderata.
-- La forma, la dimensione e il centro di ogni linea restano invariati; l'immagine parte dalla composizione originale.
-- Lo sfondo bianco mantiene il motivo ad alto contrasto, senza grigi o testo.
+- Le barre nere rettangolari hanno forma e dimensioni costanti.
+- Ogni fila scorre orizzontalmente con una fase diversa, creando un movimento ondulatorio moderato.
+- Lo sfondo e gli spazi tra le barre restano bianchi; non ci sono gradienti o testo sul canvas.
 
-Il numero, la spaziatura e la velocità del movimento si trovano all'inizio di `sketch.js`.
+Dimensioni, velocità e ampiezza del movimento si trovano all'inizio di `sketch.js`.
