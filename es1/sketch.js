@@ -1,35 +1,36 @@
 const canvasSize = 640;
-const lineCount = 11;
-const squareSpacing = 18;
-const lineSpacing = squareSpacing * 2;
-const rotationStep = 0.07;
-const movementSpeed = 0.8;
-const movementAmount = 0.035;
+const barWidth = 48;
+const barHeight = 18;
+const horizontalSpacing = 18;
+const verticalSpacing = 14;
+const movementSpeed = 0.7;
+const movementAmount = 18;
+const rowPhase = 0.65;
 
 function setup() {
   const canvas = createCanvas(canvasSize, canvasSize);
   canvas.parent('sketch-holder');
-  rectMode(CENTER);
-  noFill();
-  stroke('#000000');
-  strokeWeight(10);
+  noStroke();
 }
 
 function draw() {
   background('#ffffff');
+  fill('#000000');
+
+  const horizontalPitch = barWidth + horizontalSpacing;
+  const verticalPitch = barHeight + verticalSpacing;
+  const rowCount = floor(height / verticalPitch) + 1;
+  const columnCount = ceil(width / horizontalPitch) + 2;
   const elapsedTime = millis() / 1000;
 
-  for (let index = 0; index < lineCount; index++) {
-    const size = canvasSize * 0.68 - lineSpacing * index;
-    const phaseOffset = index * 0.8;
-    const phase = elapsedTime * movementSpeed - phaseOffset;
-    const rotationOffset = (sin(phase) - sin(-phaseOffset)) * movementAmount;
-    const movementAngle = index * rotationStep + rotationOffset;
+  for (let row = 0; row < rowCount; row++) {
+    const y = row * verticalPitch + (verticalPitch - barHeight) / 2;
+    const phase = elapsedTime * movementSpeed - row * rowPhase;
+    const offset = movementAmount * sin(phase);
 
-    push();
-    translate(width / 2, height / 2);
-    rotate(movementAngle);
-    rect(0, 0, size, size, 12);
-    pop();
+    for (let column = -1; column < columnCount; column++) {
+      const x = column * horizontalPitch + offset;
+      rect(x, y, barWidth, barHeight);
+    }
   }
 }
