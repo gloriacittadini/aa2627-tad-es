@@ -5,9 +5,8 @@ const brickWidth = 76;
 const brickHeight = 44;
 const mortarWidth = 6;
 const rowCount = 9;
-const motionSpeed = 1.8;
+const motionSpeed = 0.6;
 
-const mortarColor = '#969696';
 const brickColors = ['#171717', '#f7f7f7'];
 
 function setup() {
@@ -17,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background('#f2f2f2');
+  background('#ffffff');
 
   const wallHeight = rowCount * brickHeight + (rowCount - 1) * mortarWidth;
   const wallLeft = (width - wallWidth) / 2;
@@ -25,7 +24,7 @@ function draw() {
   const horizontalPitch = brickWidth + mortarWidth;
   const verticalPitch = brickHeight + mortarWidth;
 
-  fill(mortarColor);
+  fill('#ffffff');
   rect(wallLeft, wallTop, wallWidth, wallHeight);
 
   for (let row = 0; row < rowCount; row++) {
