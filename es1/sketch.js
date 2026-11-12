@@ -5,6 +5,8 @@ const brickWidth = 76;
 const brickHeight = 44;
 const mortarWidth = 6;
 const rowCount = 9;
+const motionAmplitude = 20;
+const motionSpeed = 1.1;
 
 const mortarColor = '#969696';
 const brickColors = ['#171717', '#f7f7f7'];
@@ -12,7 +14,6 @@ const brickColors = ['#171717', '#f7f7f7'];
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('sketch-holder');
-  noLoop();
   noStroke();
 }
 
@@ -38,7 +39,15 @@ function draw() {
       const x = wallLeft + offset + column * horizontalPitch;
       const colorIndex = ((column + row) % 2 + 2) % 2;
       fill(brickColors[colorIndex]);
-      rect(x, y, brickWidth, brickHeight);
+
+      if (colorIndex === 0) {
+        const darkBrickIndex = floor((column + row) / 2);
+        const direction = ((darkBrickIndex % 2) + 2) % 2 === 0 ? -1 : 1;
+        const movement = direction * sin((millis() / 1000) * motionSpeed) * motionAmplitude;
+        rect(x + movement, y, brickWidth, brickHeight);
+      } else {
+        rect(x, y, brickWidth, brickHeight);
+      }
     }
   }
 }
