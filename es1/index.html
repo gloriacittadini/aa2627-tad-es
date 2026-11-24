@@ -3,29 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Illusione ottica animata</title>
+    <title>Illusione Op Art a onde</title>
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
+      * { box-sizing: border-box; }
       body {
-        display: grid;
-        min-height: 100vh;
         margin: 0;
+        min-height: 100vh;
+        display: grid;
         place-items: center;
         background: #ffffff;
       }
-
-      img {
+      #sketch-holder {
+        width: min(100vw, 900px);
+      }
+      #sketch-holder img {
         display: block;
-        width: min(100vw, 640px);
+        width: 100%;
         height: auto;
       }
     </style>
   </head>
   <body>
-    <main>
+    <main id="sketch-holder">
       <img
         src="./illusione-ottica.svg"
         alt="Illusione ottica animata con quattro cerchi neri che si separano e si ricongiungono."
