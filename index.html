@@ -69,7 +69,7 @@
     <!-- Il comando /crea aggiunge qui una voce per ogni cartella creata, nella forma
          <li><a href="es1/">Es1. Titolo</a></li>: l'anteprima la aggiunge lo script qui sotto. -->
     <ul id="lavori">
-      <li><a href="es1/">Es1. Café Wall illusion</a></li>
+      <li><a href="es1/" data-preview="illusione-ottica.svg">Es1. Café Wall illusion</a></li>
     </ul>
   </main>
 
@@ -81,12 +81,13 @@
       nome.className = 'nome';
       nome.append(...link.childNodes);
 
+      const cartella = link.getAttribute('href').replace(/\/?$/, '/');
       const anteprima = document.createElement('span');
       anteprima.className = 'anteprima';
       const img = document.createElement('img');
       img.alt = '';
       img.onerror = () => { img.remove(); anteprima.classList.add('mancante'); };
-      img.src = link.getAttribute('href').replace(/\/?$/, '/') + 'preview.png';
+      img.src = cartella + (link.dataset.preview || 'preview.png');
       anteprima.append(img);
 
       link.append(anteprima, nome);
